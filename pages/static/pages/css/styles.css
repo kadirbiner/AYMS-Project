@@ -1,0 +1,299 @@
+/*navbar*/
+.custom-navbar {
+  background-color: rgb(255, 0, 0);
+  font-weight: bold;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+
+.logo-navbar {
+  font-family: "Lobster", sans-serif;
+  font-size: 40px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+}
+
+.nav-link i {
+  margin-left: 12px;
+}
+.nav-link pre {
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.kull {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff; /* Beyaz */
+  background-color: #dc3545; /* Bootstrap kırmızısı */
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.kull:hover {
+  background-color: #bb2d3b; /* Hover kırmızı tonu */
+  text-decoration: none;
+  color: #fff;
+}
+
+/*buttonlarr*/
+
+.emergency-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background-color: #fff5f5;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .emergency-button-wrapper {
+    height: auto;
+    padding: 40px 20px;
+  }
+}
+
+.emergency-button {
+  cursor: pointer;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  font-size: 25px;
+  color: red;
+  border: 6px solid red;
+  border-radius: 50%;
+  background-color: transparent;
+  font-weight: bold;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  text-align: center;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.emergency-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: red;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.emergency-button:hover::before {
+  scale: 3;
+}
+
+.emergency-button:hover {
+  color: #fff;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(255, 0, 0, 0.5);
+}
+
+.emergency-button:active {
+  scale: 1;
+}
+
+.emergency-button-text {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: #a31d1d;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  max-width: 90%;
+}
+
+/*Güvendeyim butonu*/
+
+.safe-button {
+  cursor: pointer;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  font-size: 25px;
+  color: green;
+  border: 6px solid green;
+  border-radius: 50%;
+  background-color: transparent;
+  font-weight: bold;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  text-align: center;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.safe-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(0, 255, 0);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.safe-button:hover::before {
+  scale: 3;
+}
+
+.safe-button:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(47, 255, 0, 0.4);
+}
+
+.safe-button:active {
+  scale: 1;
+}
+
+.safe-button-text {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: green;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  max-width: 90%;
+}
+
+/*footer*/
+
+footer a {
+  color: azure !important;
+}
+
+footer a:hover {
+  color: #000000 !important;
+  text-decoration: none;
+}
+
+.custom-footer {
+  background-color: rgb(255, 0, 0);
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+}
+
+.alert {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Kapanma animasyonu */
+.alert.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.ring-loader {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}
+
+.ring-loader::before,
+.ring-loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #28a745; /* yeşil */
+  animation: spin 1s linear infinite;
+}
+
+.ring-loader::after {
+  animation-delay: 0.5s;
+  border-top-color: #6fdd8f; /* daha açık yeşil */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#n8n-chat {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+#n8n-chat .chat-header {
+  display: none !important;
+}
+#n8n-chat .chat-box {
+  background-color: #f8f8f8;
+  color: #333333;
+}
+
+#n8n-chat input[type="text"] {
+  background-color: #ffffff;
+  border: 1px solid #e60000;
+  color: #333333;
+}
+
+#n8n-chat .get-started-btn {
+  background-color: #e60000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#n8n-chat .chat-footer {
+  background-color: #e60000;
+  color: #ffffff;
+  padding: 5px;
+}

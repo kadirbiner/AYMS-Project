@@ -1,0 +1,280 @@
+{% extends "layout.html" %} {% load static %} {% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@9/swiper-bundle.min.css"
+/>
+<meta name="csrf-token" content="{{ csrf_token }}">
+
+{% endblock %} {% block title %}Anasayfa{% endblock %} 
+
+{% block content %}
+
+<br><br><br><br><br>
+
+<!-- Acil yardım ve Güvendeyim butonları -->
+<section class="emergency-button-wrapper text-center ">
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
+    <!-- Acil Yardım -->
+   
+    <div class="d-flex flex-column align-items-center">
+      <button class="emergency-button" onclick="sendEmergencyAlert()"  data-user-id="{{ user.id }}">
+        ACİL YARDIM
+      </button>
+      <br />
+      <div class="emergency-button-text mt-2">
+        <!-- Acil Yardım Butonu -->
+
+        Acil bir durumda lütfen bu butona basın.
+      </div>
+    </div>
+      <div id="emergency-spinner" style="display:none; margin-top: 10px;">
+  <div class="ring-loader-red"></div>
+</div>
+
+
+    
+
+    <!-- Güvendeyim -->
+
+    {% if user.is_authenticated %}
+  <div class="d-flex flex-column align-items-center">
+    <button id="safe-button" data-user-id="{{ user.id }}" onclick="sendSafe()"   class="safe-button">GÜVENDEYİM</button>
+    <br />
+    <div class="safe-button-text mt-2">
+      Güvende olduğunuzu bildirmek için bu butona basın.
+    </div>
+  </div>
+ <div id="loading-spinner" style="display:none; margin-top: 10px;">
+  <div class="ring-loader"></div>
+</div>
+
+
+{% endif %}
+
+  </div>
+
+
+  
+</section >
+
+<br><br><br><br><br>
+
+
+<section id="acil-bildirim">
+<h2 
+  class="text-center fw-bold display-5"
+  style="
+    color: transparent;
+    background-image: linear-gradient(to right,rgb(253, 17, 13),rgb(255, 0, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  "
+>
+ " BİR TUŞ BİN UMUT "
+</h2>
+
+
+<h2 style="text-align: center; font-family: Arial, sans-serif; margin-bottom: 20px;">
+  📢 Son Acil Durum Bildirimleri
+</h2>
+
+<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; align-items: center;">
+  {% for alert in alerts %}
+    <li style="
+      width: 90%;
+      max-width: 600px;
+      background-color:rgb(209, 203, 136);
+      margin-bottom: 12px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    ">
+      <div style="line-height: 1.4;">
+        <strong style="font-size: 20px;">📍 {{ alert.user.username }}</strong><br>
+        <span style="color: #666; font-size: 16px;">
+          {{ alert.timestamp|date:"d M Y H:i" }}
+        </span><br>
+        <span style="color: #888; font-size: 13px;">
+          {{ alert.user.address }}
+        </span>
+      </div>
+      <a
+        href="https://www.google.com/maps?q={{ alert.latitude }},{{ alert.longitude }}"
+        target="_blank"
+        style="
+          background-color:rgb(255, 0, 0);
+          color: white;
+          padding: 6px 12px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 500;
+          margin-left: 10px;
+          white-space: nowrap;
+        "
+      >
+        Haritada Göster
+      </a>
+    </li>
+  {% empty %}
+    <li style="text-align: center;">Henüz acil durum bildirimi yok.</li>
+  {% endfor %}
+</ul>
+
+</section>
+<br><br><br><br><br>
+
+
+
+
+<!-- kartlar -->
+
+<section id="features" class="py-5 m-10 "style="
+            background-color:red;" >
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold  "style="color:rgb(255, 255, 255);" >AYMS</h2>
+      <p class=""style="color:rgb(255, 255, 255); ">
+        Afet Yönetim ve Müdahale Sistemimi
+      </p>
+    </div>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Özellik 1 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-map-marked-alt fa-3x text-primary mb-3"></i>
+            <h5 class="fw-semibold">Gerçek Zamanlı Takip</h5>
+            <p class="text-muted">
+              Harita üzerinden afet olaylarını anlık izleyin.
+            </p>
+          </div>
+        </div>
+
+        <!-- Özellik 2 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-hand-holding-heart fa-3x text-success mb-3"></i>
+            <h5 class="fw-semibold">Yardım Eli</h5>
+            <p class="text-muted">Afet anında hızlı müdahale edin.</p>
+          </div>
+        </div>
+
+        <!-- Özellik 3 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-bell fa-3x text-danger mb-3"></i>
+            <h5 class="fw-semibold">Anında Bildirim Sistemi</h5>
+            <p class="text-muted">
+              Acil durumlarda Email ile anında bilgi alın.
+            </p>
+          </div>
+        </div>
+
+        <!-- Özellik 4 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-users fa-3x text-info mb-3"></i>
+            <h5 class="fw-semibold">Acil Toplanma Alanları</h5>
+            <p class="text-muted">
+              Acil Toplanama alanlarına anında ulaşın.
+            </p>
+          </div>
+        </div>
+
+        <!-- Özellik 5 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-database fa-3x text-warning mb-3"></i>
+            <h5 class="fw-semibold">Veri Arşivleme</h5>
+            <p class="text-muted">Geçmiş afet verilerine hızlıca erişin.</p>
+          </div>
+        </div>
+
+        <!-- Özellik 6 -->
+        <div class="swiper-slide">
+          <div class="card h-100 border-0 shadow rounded-4 text-center p-4">
+            <i class="fas fa-envelope fa-3x text-secondary mb-3"></i>
+            <h5 class="fw-semibold">Geri Bildirim</h5>
+            <p class="text-muted">
+              Güveneyim bilgisi ile yakkınlarınıza bilgi gönderin.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigasyon Düğmeleri -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+  </di>v
+</section>
+
+<!-- Canlı Depremler Harita + Liste -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Deprem Listesi -->
+      <div class="col-md-6">
+        <h5>Son Depremler</h5>
+        <ul class="list-group" style="max-height: 400px; overflow-y: auto">
+          {% for quake in earthquakes %}
+          <li class="list-group-item">
+            <strong>{{ quake.title }}</strong><br />
+            Şiddet: {{ quake.mag }}<br />
+            Zaman: {{ quake.date }}<br />
+            <button
+              class="btn btn-primary show-on-map"
+              data-lat="{{ quake.lat }}"
+              data-lng="{{ quake.lng }}"
+            >
+              Haritada Göster
+            </button>
+          </li>
+          {% empty %}
+          <li class="list-group-item">Veri alınamadı.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Harita -->
+      <div class="col-md-6">
+        <h5>Canlı Depremler (Harita)</h5>
+        <div
+          id="live-earthquake-map"
+          style="height: 400px; border-radius: 10px"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock content %}
+{% block js_script %}
+<script src="{% static 'pages/js/index.js' %}"></script>
+
+
+<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+{% endblock %}

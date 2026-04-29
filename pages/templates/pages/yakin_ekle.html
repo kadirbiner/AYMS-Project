@@ -1,0 +1,106 @@
+{% extends "layout.html" %} {% load static %} {% block title %}Yakın
+Ekle{%endblock %} {% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'pages/css/profile2.css' %}" />
+{% endblock %} {% block content %}
+<body class="bg-custom-dark">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div
+            class="card-header bg-gradient bg-primary text-white rounded-top-4"
+          >
+            <h4 class="mb-0 text-center">Yakın Bilgisi Ekle</h4>
+          </div>
+          <div class="card-body p-4">
+            {%if error%}
+            <div class="alert alert-danger">{{msg}}</div>
+            {%endif%}
+            <form method="POST" action="{% url 'yakin_ekle' %}">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Yakının Adı</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Yakının adı"
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="surname" class="form-label">Yakının Soyadı</label>
+                  <input
+                  type="text"
+                    class="form-control"
+                    id="surname"
+                    name="surname"
+                    placeholder="Yakının Soyadı "
+                  ></input>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="relation" class="form-label"
+                    >Yakınlık Derecesi</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="relation"
+                    name="relationship"
+                    placeholder="Anne, Baba, Kardeş..."
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Telefon Numarası</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    name="phone_number"
+                    placeholder="05xx xxx xx xx"
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    rows="4"
+                    placeholder="Yakının E-postası "
+                  ></input>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">Adres</label>
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    name="address"
+                    rows="4"
+                    placeholder="Yakının adresi "
+                  ></textarea>
+                </div>
+
+                <div class="col-12 mt-3">
+                  <button type="submit" class="btn btn-success py-2 fw-bold">
+                    Yakını Kaydet
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br /><br /><br /><br /><br />
+</body>
+{% endblock %} {% block js_script %}
+<script src="{% static 'pages/js/alan.js' %}"></script>
+{% endblock %}

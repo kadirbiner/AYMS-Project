@@ -1,0 +1,215 @@
+{% extends "layout.html" %} {% load static %} {% block title %}Profil
+Güncelle{%endblock %} {% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'pages/css/profile2.css' %}" />
+{% endblock %} {% block content %}
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-header text-white rounded-top-4">
+            <h4 class="mb-0 text-center">Profil Bilgilerini Güncelle</h4>
+          </div>
+          <div class="card-body p-4">
+            <form action="{% url 'update_profile' %}" method="POST">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="first_name" class="form-label">Ad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="first_name"
+                    name="first_name"
+                    value="{{ profile.first_name }}"
+                    placeholder="Adınızı girin"
+                    title="Lütfen adınızı yazınız"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="last_name" class="form-label">Soyad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="last_name"
+                    name="last_name"
+                    value="{{ profile.last_name }}"
+                    placeholder="Soyadınızı girin"
+                    title="Lütfen soyadınızı yazınız"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email" class="form-label">E-posta</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    value="{{ profile.email }}"
+                    placeholder="ornek@mail.com"
+                    title="E-posta adresinizi girin"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone_number" class="form-label"
+                    >Telefon Numarası</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone_number"
+                    name="phone_number"
+                    value="{{ profile.phone_number }}"
+                    placeholder="05xx xxx xx xx"
+                    title="Telefon numaranızı girin"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="birth_date" class="form-label"
+                    >Doğum Tarihi</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="birth_date"
+                    name="birth_date"
+                    value="{{ profile.birth_date }}"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">Adres</label>
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    name="address"
+                    value="{{ profile.address }}"
+                    rows="4"
+                    placeholder="Açık adresinizi girin"
+                    title="Lütfen adresinizi ayrıntılı bir şekilde girin"
+                    required
+                  ></textarea>
+                </div>
+                <!-- ... önceki alanlar aynı şekilde devam eder -->
+
+                <div class="col-md-6">
+  <label for="kan" class="form-label">Kan Grubu</label>
+  <select
+    class="form-select"
+    id="kan"
+    name="kan"
+    title="Lütfen kan grubunuzu seçin"
+    required
+  >
+    <option value="" disabled selected>Kan grubunuzu seçin</option>
+    <option value="A Rh+" {% if profile.kan == "A Rh+" %}selected{% endif %}>A Rh+</option>
+    <option value="A Rh-" {% if profile.kan == "A Rh-" %}selected{% endif %}>A Rh-</option>
+    <option value="B Rh+" {% if profile.kan == "B Rh+" %}selected{% endif %}>B Rh+</option>
+    <option value="B Rh-" {% if profile.kan == "B Rh-" %}selected{% endif %}>B Rh-</option>
+    <option value="AB Rh+" {% if profile.kan == "AB Rh+" %}selected{% endif %}>AB Rh+</option>
+    <option value="AB Rh-" {% if profile.kan == "AB Rh-" %}selected{% endif %}>AB Rh-</option>
+    <option value="0 Rh+" {% if profile.kan == "0 Rh+" %}selected{% endif %}>0 Rh+</option>
+    <option value="0 Rh-" {% if profile.kan == "0 Rh-" %}selected{% endif %}>0 Rh-</option>
+  </select>
+</div>
+
+
+                <div class="col-md-6">
+                  <label for="boy" class="form-label">Boy (cm)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="boy"
+                    name="boy"
+                    value="{{ profile.boy }}"
+                    placeholder="Boyunuzu cm olarak girin"
+                    title="Lütfen boyunuzu girin"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="kilo" class="form-label">Kilo (kg)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="kilo"
+                    name="kilo"
+                    value="{{ profile.kilo }}"
+                    placeholder="Kilonuzu kg olarak girin"
+                    title="Lütfen kilonuzu girin"
+                  />
+                </div>
+
+                <div class="col-md-12">
+                  <label for="hasta" class="form-label">Hastalık Bilgisi</label>
+                  <textarea
+                    class="form-control"
+                    id="hasta"
+                    name="hasta"
+                    rows="2"
+                    placeholder="Varsa kronik hastalıklarınızı girin"
+                  >
+{{ profile.hasta }}</textarea
+                  >
+                </div>
+
+                <div class="col-md-12">
+                  <label for="ilac" class="form-label"
+                    >Kullanılan İlaçlar</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="ilac"
+                    name="ilac"
+                    rows="2"
+                    placeholder="Sürekli kullandığınız ilaçları yazın"
+                  >
+{{ profile.ilac }}</textarea
+                  >
+                </div>
+
+                <div class="col-md-12">
+                  <label for="engel" class="form-label">Engel Durumu</label>
+                  <textarea
+                    class="form-control"
+                    id="engel"
+                    name="engel"
+                    rows="2"
+                    placeholder="Varsa engel durumunuzu açıklayın"
+                  >
+{{ profile.engel }}</textarea
+                  >
+                </div>
+
+                <div class="col-12 mt-3">
+                  <button
+                    type="submit"
+                    class="btn btn-success py-2 fw-bold"
+                    style="transition: background-color 0.3s ease-in-out"
+                  >
+                    Bilgileri Güncelle
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br /><br /><br /><br /><br />
+</body>
+{% endblock %} {% block js_script %}
+<script src="{% static 'pages/js/alan.js' %}"></script>
+{% endblock %}

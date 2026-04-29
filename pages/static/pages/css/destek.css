@@ -1,0 +1,11 @@
+/* Video iframe görünümü */
+.ratio iframe {
+  border-radius: 8px;
+}
+
+/* Liste görünümü */
+.list-group-itemm {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+}

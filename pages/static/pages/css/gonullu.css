@@ -1,0 +1,12 @@
+
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+      .alert-list {
+        list-style: none;
+        padding: 0;
+      }
+      .alert-item {
+        margin-bottom: 20px;
+      }

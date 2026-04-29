@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hesap Doğrulama</title>
+  </head>
+  <body
+    style="
+      background-color: rgb(239, 31, 48);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    "
+  >
+    <div
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solidrgb(187, 34, 49);
+        border-radius: 8px;
+        padding: 30px;
+      "
+    >
+      <h2 style="text-align: center; color: #dc3545">
+        Afet Yönetim ve Müdahale Sistemi
+      </h2>
+      <hr style="border: 0; border-top: 1px solidrgba(220, 14, 34, 0.77)" />
+
+      <p style="font-size: 16px">
+        Merhaba <strong>{{ user.username }}</strong>,
+      </p>
+      <p style="font-size: 16px">
+        Hesabınızı aktif hale getirmek için aşağıdaki butona tıklayın:
+      </p>
+
+      <div style="text-align: center; margin: 30px 0">
+        <a
+          href="{{ link }}"
+          style="
+            background-color: #dc3545;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+          "
+        >
+          Hesabınızı Doğrulayın
+        </a>
+      </div>
+
+      <p style="font-size: 14px; color: #6c757d">
+        Eğer bu işlemi siz başlatmadıysanız, bu e-postayı yok sayabilirsiniz.
+      </p>
+
+      <p
+        style="
+          font-size: 12px;
+          color: #adb5bd;
+          text-align: center;
+          margin-top: 30px;
+        "
+      >
+        © 2025 Afet Yönetim Sistemi – Bu mesaj otomatik olarak gönderilmiştir.
+      </p>
+    </div>
+  </body>
+</html>

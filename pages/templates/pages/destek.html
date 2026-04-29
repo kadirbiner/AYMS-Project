@@ -1,0 +1,254 @@
+{% extends "layout.html" %} {% load static %} {% block title %}Afet
+Rehberi{%endblock %} {% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'pages/css/destek.css' %}" />
+
+{% endblock %} {% block content %}
+
+<br /><br /><br /><br /><br />
+<div class="afet-container">
+  <h1 class="afet-title text-center">Afet Bilgilendirme</h1>
+  <p class="afet-lead text-center">Hazırlıklı olun, hayatınızı koruyun!</p>
+</div>
+
+<div class="container py-5">
+  <!--Afet Çantası -->
+  <section id="afet-cantasi" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Afet Çantası Nasıl Hazırlanır?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Kimlik fotokopisi, su, ilk yardım malzemeleri.
+          </li>
+          <li class="list-group-item">
+            Radyo, pil, el feneri ve temel gıda maddeleri.
+          </li>
+          <li class="list-group-item">
+            Kişisel hijyen ürünleri ve yedek kıyafet.
+          </li>
+          <li class="list-group-item">
+            Kişisel ihtiyaçlara göre ek malzemeler.
+          </li>
+          <li class="list-group-item">
+            6 ayda bir içindekileri kontrol et, tarihi geçenleri değiştir.
+          </li>
+          <li class="list-group-item">
+            Çantayı evde kolay ulaşılabilir bir yere koy (kapı arkası, yatak
+            başı vb.).
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/K0keerAalYE"
+            title="AFAD Afet Çantası Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deprem -->
+  <section id="deprem" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Deprem Anında Ne Yapmalıyız?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Çök-Kapan-Tutun pozisyonunu alın.</li>
+          <li class="list-group-item">
+            Ağır eşyalardan ve camlardan uzak durun.
+          </li>
+          <li class="list-group-item">
+            Sarsıntı bitene kadar olduğun yerde kal.
+          </li>
+          <li class="list-group-item">
+            Asansör kullanmayın, merdivenleri dikkatle kullanın.
+          </li>
+          <li class="list-group-item">
+            Yardım çağırmak için bağırma, düdük çal ya da duvara vur.
+          </li>
+          <li class="list-group-item">
+            Cep telefonunu yalnızca acil durumlar için kullan.
+          </li>
+          <li class="list-group-item">
+            Binalardan, direklerden, ağaçlardan ve elektrik hatlarından uzaklaş.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/oZeI0X40EEY"
+            title="AFAD Deprem Bilgilendirme Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Sel-->
+  <section id="sel" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Sel Anında Ne Yapmalıyız?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Elektrik prizlerinden ve suyla temas eden kablolardan uzak dur.
+          </li>
+          <li class="list-group-item">
+            Alt geçit, bodrum gibi düşük bölgelerden kaçının.
+          </li>
+          <li class="list-group-item">Güvenli ve yüksek bir alana geçin.</li>
+          <li class="list-group-item">
+            Evin dışına çıkman gerekiyorsa suyun akış yönüne ters yönde git.
+          </li>
+          <li class="list-group-item">
+            Su birikintilerine, rögar kapaklarına veya köprülere yaklaşma.
+          </li>
+          <li class="list-group-item">
+            Eğer araçta iseniz su dolu yollardan geçmeye çalışmayın (30 cm su
+            bir arabayı sürükleyebilir).
+          </li>
+          <li class="list-group-item">
+            Yetkililerden gelen duyuruları takip et.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/OKYgIFOiur8"
+            title="AFAD Sel Bilgilendirme Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--yangin-->
+  <section id="yangin" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Yangın Anında Ne Yapmalıyız?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Yangını fark edince hemen uyar, yardım çağır (112 / 110).
+          </li>
+          <li class="list-group-item">
+            Dumanla kaplı alanlarda yere yakın hareket edin.
+          </li>
+          <li class="list-group-item">
+            Yangını söndüremiyorsanız hemen binayı terk edin.
+          </li>
+          <li class="list-group-item">
+            Islak bezle burnunuzu ve ağzınızı kapatın.
+          </li>
+          <li class="list-group-item">
+            Kapıyı açmadan önce elinle tokmağı kontrol et (sıcaksa açma).
+          </li>
+          <li class="list-group-item">
+            Kapı açılamıyorsa kapıyı ıslat ve altını bezle kapat, camdan yardım
+            iste.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/oRoM7fcM6qo"
+            title="AFAD Yangın Bilgilendirme Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--cig-->
+  <section id="cig" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Çığ Anında Ne Yapmalıyız?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Çığ sesi (gürültü, patlama gibi) duyarsan hemen yüksek ve sağlam bir
+            zemine çıkmaya çalış.
+          </li>
+          <li class="list-group-item">
+            Mümkünse çığa dik açıyla (yana doğru) koşarak uzaklaş.
+          </li>
+          <li class="list-group-item">
+            Vakit kaybetmeden sabit bir nesneye tutunun.
+          </li>
+          <li class="list-group-item">
+            Çığla birlikte mümkünse yüzeyde kalmaya çalışın.
+          </li>
+          <li class="list-group-item">
+            Kar altında kaldıysanız ağız ve burnunuzun etrafında boşluk yaratın.
+          </li>
+          <li class="list-group-item">
+            Fazla hareket etme, enerjini koru, bekle.
+          </li>
+          <li class="list-group-item">
+            Cep telefonun varsa sinyal vermeye çalış.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/1f6-6j7FlAo"
+            title="AFAD Çığ Bilgilendirme Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--heyelan-->
+  <section id="heylan" class="mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2>Heyelan Anında Ne Yapmalıyız?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Zeminde çatlaklar, eğilmiş ağaçlar, eğik direkler fark edersen uyarı
+            kabul et.
+          </li>
+          <li class="list-group-item">
+            Toprak kayması esnasında pencere ve kapılardan uzaklaşın.
+          </li>
+          <li class="list-group-item">
+            Güvenli bir yere çık ve orada bekle, tekrarlayan kaymalar olabilir.
+          </li>
+          <li class="list-group-item">
+            Hemen heyelanın aksi yönüne ve yukarıya doğru kaç. Toprak akışına
+            paralel ya da aşağı yönde kaçma!
+          </li>
+          <li class="list-group-item">
+            Yakındakileri uyar, yardım istemek için bağır ya da ses çıkar.
+          </li>
+          <li class="list-group-item">
+            Yetkililerden gelen uyarıları dikkate alın, tahliye gerekiyorsa
+            gecikmeyin.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/nPUcxKI3PEs"
+            title="AFAD Heyelan Bilgilendirme Videosu"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %} {% block js_script %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'pages/js/index.js' %}"></script>
+{% endblock %}

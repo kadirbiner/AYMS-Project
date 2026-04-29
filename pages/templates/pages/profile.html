@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Profil{% endblock %}
+
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/profile.css' %}" />
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- Profil Bilgileri ve Sağlık Verileri (Sol Sütun) -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm p-4">
+        <div class="text-center">
+          <img
+            src="{% static 'pages/img/pro-1.jpg' %}"
+            class="rounded-circle"
+            alt="Kullanıcı Fotoğrafı"
+            width="150"
+            height="150"
+          />
+          <h4 class="mt-3">{{ profile.first_name }} {{ profile.last_name }}</h4>
+          <p class="text-muted">{{ profile.email }}</p>
+        </div>
+
+        <hr />
+
+        <p><strong>Telefon:</strong> {{ profile.phone_number }}</p>
+        <p><strong>Doğum Tarihi:</strong> {{ profile.birth_date }}</p>
+        <p><strong>Adres:</strong> {{ profile.address }}</p>
+        <p><strong>Kan Grubu:</strong> {{ profile.kan }}</p>
+        <p><strong>Boy:</strong> {{ profile.boy }} cm</p>
+        <p><strong>Kilo:</strong> {{ profile.kilo }} kg</p>
+        <p><strong>Hastalık Bilgisi:</strong><br />{{ profile.hasta|default:"Yok" }}</p>
+        <p><strong>Kullanılan İlaçlar:</strong><br />{{ profile.ilac|default:"Yok" }}</p>
+        <p><strong>Engel Durumu:</strong><br />{{ profile.engel|default:"Yok" }}</p>
+
+        <!-- Butonlar -->
+        <div class="d-grid gap-2 mt-4">
+          <a href="{% url 'update_profile' %}" class="profile-update-btn">Profil Güncelle</a>
+          <a href="{% url 'yakin_ekle' %}" class="profile-update-btn">Yakın Ekle</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yakınlar Kısmı (Sağ Sütun) -->
+    <div class="col-lg-8">
+      <div class="contact-card p-4 shadow-sm">
+        <h5 class="mb-3">Yakınlar</h5>
+
+        {% for contact in profile.emergency_contacts.all %}
+          <div class="border rounded p-3 mb-3">
+            <p><strong>Adı:</strong> {{ contact.name }}</p>
+            <p><strong>Yakınlık:</strong> {{ contact.relationship }}</p>
+            <p><strong>Telefon:</strong> {{ contact.phone_number }}</p>
+            <p><strong>Adres:</strong> {{ contact.address }}</p>
+            <form method="POST" action="{% url 'delete_contact' contact.id %}" onsubmit="return confirm('Bu kişiyi silmek istediğinizden emin misiniz?')">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Sil</button>
+            </form>
+          </div>
+        {% empty %}
+          <p>Henüz yakın bilgisi eklenmemiş.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js_script %}
+<script src="{% static "pages/js/profile.js" %}"></script>
+{% endblock %}

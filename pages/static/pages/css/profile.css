@@ -1,0 +1,140 @@
+.relative-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/*yakınlarım kartları*/
+
+.card h5 {
+  font-weight: 600;
+  color: #000000;
+}
+
+.card p {
+  margin: 4px 0;
+  color: #000000;
+}
+
+.card img {
+  border: 4px solid #dee2e6;
+}
+
+/*profile-update*/
+
+.profile-update-btn-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.profile-update-btn {
+  display: inline-block;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-update-btn:hover {
+  background: linear-gradient(to right, #0056b3, #003d80);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-update-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.profile-update-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.profile-update-btn:hover {
+  background-color: #0056b3;
+}
+
+/* uyarı mesajı stilleri*/
+
+.alert {
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 16px;
+  transition: opacity 0.5s ease-out;
+}
+
+.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.alert .btn-close {
+  background: transparent;
+  border: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 1.25rem;
+}
+
+.alert .btn-close:hover {
+  opacity: 1;
+}
+
+.auto-dismiss {
+  animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.alert {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .alert {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+/* Yakınlar Kısmı için Gelişmiş Kart */
+.contact-card {
+  background-color: #f8f9fa;
+  border-left: 5px solid #0d6efd;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+}
+
+.contact-card h6 {
+  font-weight: 600;
+  color: #000000;
+}
+
+.contact-card p {
+  margin: 4px 0;
+  color: #000000;
+}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Alan{% endblock %}
+
+{% block css_style %}
+<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'pages/css/alan.css' %}" />{% endblock %}
+
+
+{% block content %}
+
+<br><br><br><br><br>
+<div class="container d-flex justify-content-center">
+  <div class="card p-4" style="max-width: 600px; width: 100%;">
+    <div class="text-center mb-3">
+      <i class="fas fa-map-marked-alt icon"></i>
+      <h3 class="mt-2">Acil Toplanma Alanları</h3>
+    </div>
+    <p>
+      Afet anında size en yakın güvenli alanları öğrenmek için e-Devlet üzerinden sorgulama yapabilirsiniz.
+      Bu alanlar, deprem, yangın veya benzeri afet durumlarında halkın toplanması için belirlenmiştir.
+    </p>
+    <div class="text-center mt-4">
+      <a href="https://www.turkiye.gov.tr/afet-ve-acil-durum-yonetimi-acil-toplanma-alani-sorgulama" 
+         target="_blank" class="btn btn-custom btn-lg">
+        <i class="fas fa-external-link-alt me-2"></i> e-Devlet'te Sorgula
+      </a>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br>
+
+
+
+
+{% endblock %}
+
+{% block js_script %}<script src="{% static "pages/js/alan.js" %}"></script>{% endblock%}  
+
+
+
+
+

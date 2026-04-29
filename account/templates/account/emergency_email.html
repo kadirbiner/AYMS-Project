@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Acil Durum Bildirimi</title>
+  </head>
+  <body
+    style="
+      background-color: #f8d7da;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+    "
+  >
+    <div
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid #dc3545;
+      "
+    >
+      <h2 style="color: #dc3545; margin-bottom: 20px">Acil Durum Bildirimi</h2>
+
+      <p style="font-size: 16px">
+        Merhaba <strong>{{ contact.name }}</strong>,
+      </p>
+
+      <p style="font-size: 16px; margin-top: 10px">
+        <strong style="color: #dc3545"
+          >{{ user.first_name }} {{ user.last_name }}</strong
+        >
+        şu anda <strong style="color: #dc3545">ACİL DURUMDA</strong> olduğunu
+        bildirdi.
+      </p>
+
+      <p style="font-size: 15px; margin-top: 10px">
+        Lütfen aşağıdaki bilgileri kontrol edin ve hızlıca müdahale edin:
+      </p>
+
+      <ul style="font-size: 15px; padding-left: 20px; margin-bottom: 20px">
+        <li><strong>Konum:</strong> {{ latitude }}, {{ longitude }}</li>
+        <li><strong>Telefon:</strong> {{ user.phone_number }}</li>
+        <li><strong>Adres:</strong> {{ user.address }}</li>
+        <li><strong>Doğum Tarihi:</strong> {{ user.birth_date }}</li>
+      </ul>
+
+      <!-- Haritada Göster Butonu -->
+      <div style="margin-bottom: 20px">
+        <a
+          href="https://www.google.com/maps?q={{ latitude }},{{ longitude }}"
+          target="_blank"
+          style="
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+          "
+        >
+          Haritada Göster
+        </a>
+      </div>
+
+      <p
+        style="
+          font-size: 15px;
+          font-weight: bold;
+          color: #dc3545;
+          margin-bottom: 10px;
+        "
+      >
+        {{ user.first_name }} {{ user.last_name }} - Sağlık Bilgileri:
+      </p>
+
+      <ul style="font-size: 15px; padding-left: 20px; margin-bottom: 20px">
+        <li><strong>Kan Grubu:</strong> {{ user.kan }}</li>
+        <li><strong>Boy:</strong> {{ user.boy }} cm</li>
+        <li><strong>Kilo:</strong> {{ user.kilo }} kg</li>
+        <li><strong>Hastalık Durumu:</strong> {{ user.hasta }}</li>
+        <li><strong>İlaç Kullanımı:</strong> {{ user.ilac }}</li>
+        <li><strong>Engel Durumu:</strong> {{ user.engel }}</li>
+      </ul>
+
+      <p style="font-size: 14px">
+        Daha fazla bilgiye sistemden ulaşabilirsiniz. Gecikmeden gerekli
+        müdahaleyi sağlayın.
+      </p>
+
+      <!-- Siteye Git Butonu -->
+      <div style="margin-top: 20px">
+        <a
+          href="http://127.0.0.1:8000/"
+          style="
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+          "
+        >
+          Siteye Git
+        </a>
+      </div>
+
+      <hr style="margin-top: 30px; border: none; border-top: 1px solid #eee" />
+
+      <p
+        style="
+          font-size: 12px;
+          color: #999;
+          text-align: center;
+          margin-top: 10px;
+        "
+      >
+        Afet Yönetim ve Müdahale Sistemi<br />
+        © 2025 Tüm Hakları Saklıdır
+      </p>
+    </div>
+  </body>
+</html>

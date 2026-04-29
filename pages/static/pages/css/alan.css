@@ -1,0 +1,17 @@
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+  background-color: #198754;
+  color: black;
+  transition: all 0.3s ease;
+}
+.btn-custom:hover {
+  background-color: #157347;
+}
+.icon {
+  font-size: 40px;
+  color: #198754;
+}

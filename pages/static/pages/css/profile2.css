@@ -1,0 +1,60 @@
+/* Body arka plan */
+body {
+  background-color: #f8f9fa;
+  background-image: linear-gradient(to right, #973a3a, #973a3a);
+}
+
+/* Kart görünümü */
+.card {
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  box-shadow: 0 6px 45px rgba(0, 0, 0, 1) !important;
+}
+
+/* Kart başlık */
+.card-header {
+  background: red !important;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+/* Form inputları */
+.form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* Button stil */
+.btn-success {
+  background-color: red;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.btn-success:hover {
+  background-color: red;
+  transform: scale(1.05);
+}
+
+/* Adres textarea */
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+  border-radius: 0.5rem;
+}
+
+/* Küçük ekranlar için */
+@media (max-width: 576px) {
+  .card {
+    margin: 0 10px;
+  }
+}
